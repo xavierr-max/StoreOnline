@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="StoreOnline.Application/StoreOnline.Application.csproj" />
+  <Project Path="StoreOnline.Domain/StoreOnline.Domain.csproj" />
+  <Project Path="StoreOnline.Tests/StoreOnline.Tests.csproj" />
+</Solution>
