@@ -1,4 +1,4 @@
-﻿using StoreOnline.Domain.SaleContext.ValueObjects;
+﻿﻿using StoreOnline.Domain.SaleContext.ValueObjects;
 using StoreOnline.Domain.SharedContext.Entities;
 
 namespace StoreOnline.Domain.SaleContext.Entities;
@@ -58,5 +58,5 @@ public class Product : Entity
 
     public void UpdateName(string name) => Name = name;
 
-    public void UpdateDescription(string description) => Description = Description;
+    public void UpdateDescription(string description) => Description = description;
 }

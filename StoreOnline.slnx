@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="StoreOnline.Api/StoreOnline.Api.csproj" />
   <Project Path="StoreOnline.Application/StoreOnline.Application.csproj" />
   <Project Path="StoreOnline.Domain/StoreOnline.Domain.csproj" />
   <Project Path="StoreOnline.Infrastructure/StoreOnline.Infrastructure.csproj" />

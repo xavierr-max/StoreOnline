@@ -18,8 +18,4 @@
     <ProjectReference Include="..\StoreOnline.Domain\StoreOnline.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="SharedContext\" />
-  </ItemGroup>
-
 </Project>

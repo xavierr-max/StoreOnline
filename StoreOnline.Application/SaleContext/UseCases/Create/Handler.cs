@@ -37,12 +37,6 @@ public class Handler : IHandler<Request, Response>
 
         try
         {
-            // 2. RECUPERAR DADOS DAS ENTITIES PELOS REPOS (se necessário)
-            // Neste caso, não há necessidade de recuperar dados externos,
-            // mas você poderia adicionar verificações como:
-            // - Verificar se o produto já existe
-            // - Recuperar dados de referência
-
             // 3. CRIAR NOVO OBJETO DA ENTITY
             // Cria a instância de Product passando os dados do Command
             var product = new Product(
