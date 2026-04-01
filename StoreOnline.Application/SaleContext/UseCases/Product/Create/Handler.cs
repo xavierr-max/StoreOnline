@@ -1,20 +1,15 @@
 ﻿using Flunt.Notifications;
 using Flunt.Validations;
 using StoreOnline.Application.SharedContext.UseCases;
-using StoreOnline.Domain.SaleContext.Entities;
 using StoreOnline.Domain.SaleContext.Repositories;
+using StoreOnline.Domain.SharedContext.Repositories.Abstractions;
 
-namespace StoreOnline.Application.SaleContext.UseCases.Create;
+namespace StoreOnline.Application.SaleContext.UseCases.Product.Create;
 
-public class Handler : IHandler<Request, Response>
+public class Handler(
+    IProductRepository productRepository,
+    IUnitOfWork unitOfWork) : IHandler<Request, Response>
 {
-    private readonly IProductRepository _productRepository;
-
-    public Handler(IProductRepository productRepository)
-    {
-        _productRepository = productRepository;
-    }
-
     public async Task<Response> Handle(Request request)
     {
         // 1. FAIL FAST VALIDATION - Valida o request antes de processar
@@ -37,16 +32,16 @@ public class Handler : IHandler<Request, Response>
 
         try
         {
-            // 3. CRIAR NOVO OBJETO DA ENTITY
+            // 2. CRIAR NOVO OBJETO DA ENTITY
             // Cria a instância de Product passando os dados do Command
-            var product = new Product(
+            var product = new Domain.SaleContext.Entities.Product(
                 request.Name,
                 request.Price,
                 request.Stock,
                 request.Description
             );
 
-            // 4. CHAMAR VALIDAÇÕES DA ENTITY
+            // 3. CHAMAR VALIDAÇÕES DA ENTITY
             // Verifica se a Entity tem notificações (validações falharam)
             if (!product.IsValid)
             {
@@ -58,8 +53,9 @@ public class Handler : IHandler<Request, Response>
                 };
             }
 
-            // 5. SALVAR NO BANCO O NOVO OBJETO
-            await _productRepository.CreateAsync(product, CancellationToken.None);
+            // 4. SALVAR NO BANCO O NOVO OBJETO
+            await productRepository.CreateAsync(product, CancellationToken.None);
+            await unitOfWork.CommitAsync();
 
             return new Response
             {

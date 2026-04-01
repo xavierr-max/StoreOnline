@@ -10,4 +10,8 @@
     <ProjectReference Include="..\StoreOnline.Domain\StoreOnline.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SaleContext\UseCases\Product\" />
+  </ItemGroup>
+
 </Project>

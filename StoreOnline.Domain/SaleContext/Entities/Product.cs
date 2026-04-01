@@ -1,9 +1,10 @@
-﻿﻿using StoreOnline.Domain.SaleContext.ValueObjects;
+﻿using StoreOnline.Domain.SaleContext.ValueObjects;
+using StoreOnline.Domain.SharedContext.AggregateRoots.Abstractions;
 using StoreOnline.Domain.SharedContext.Entities;
 
 namespace StoreOnline.Domain.SaleContext.Entities;
 
-public class Product : Entity
+public class Product : Entity, IAggregateRoot
 {
     public Product(
         string name,
@@ -19,6 +20,9 @@ public class Product : Entity
         UpdatedAt = DateTime.UtcNow;
         Description = description;
     }
+
+    // EF Core constructor
+    protected Product() { }
 
     public string Name { get; private set; }
     public Price Price { get; private set; }

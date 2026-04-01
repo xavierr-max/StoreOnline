@@ -1,7 +1,7 @@
 ﻿using Flunt.Notifications;
 using StoreOnline.Application.SharedContext.UseCases;
 
-namespace StoreOnline.Application.SaleContext.UseCases.Create;
+namespace StoreOnline.Application.SaleContext.UseCases.Product.Create;
 
 public class Response : IResponse
 {

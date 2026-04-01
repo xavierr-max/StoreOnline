@@ -7,7 +7,7 @@ public abstract class Entity : Notifiable<Notification>, IEquatable<Guid>
     protected Entity()
         => Id = Guid.CreateVersion7();
 
-    public Guid Id { get; }
+    public Guid Id { get; init; }
 
     public bool Equals(Guid id)
         => Id == id;
