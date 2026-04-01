@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using StoreOnline.Application.SaleContext.UseCases.Product.Create;
-using StoreOnline.Application.SharedContext.UseCases;
+using StoreOnline.Api;
 using StoreOnline.Infrastructure.SharedContext;
 using StoreOnline.Infrastructure.SharedContext.Data;
 
@@ -15,8 +14,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     ));
 
 builder.Services.AddInfrastructure();
-// Registrando o Caso de Uso
-builder.Services.AddTransient<IHandler<Request, Response>, Handler>();
+// Registrando os Caso de Uso
+builder.Services.AddHandlers();
 
 var app = builder.Build();
 
