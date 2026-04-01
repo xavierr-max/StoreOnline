@@ -6,6 +6,8 @@ using StoreOnline.Infrastructure.SharedContext.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
@@ -18,12 +20,6 @@ builder.Services.AddTransient<IHandler<Request, Response>, Handler>();
 
 var app = builder.Build();
 
-app.MapPost("/v1/product", async (
-    Request command,
-    IHandler<Request, Response> sender) =>
-{
-    var result = await sender.Handle(command);
-    return TypedResults.Ok(result);
-});
+app.MapControllers();
 
 app.Run();
