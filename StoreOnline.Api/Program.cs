@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using StoreOnline.Api;
+using StoreOnline.Api.Extensions;
 using StoreOnline.Infrastructure.SharedContext;
 using StoreOnline.Infrastructure.SharedContext.Data;
 
@@ -14,11 +15,16 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     ));
 
 builder.Services.AddInfrastructure();
+// Adiciona a configuração de CORS separada
+builder.Services.AddConfiguredCors();
 // Registrando os Caso de Uso
 builder.Services.AddHandlers();
 
+
 var app = builder.Build();
 
+// Ativa o Middleware (Importante: antes de MapControllers)
+app.UseCors("StoreOnlinePolicy");
 app.MapControllers();
 
 app.Run();

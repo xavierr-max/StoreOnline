@@ -1,9 +1,22 @@
 ﻿using StoreOnline.Application.SharedContext.UseCases;
 
-namespace StoreOnline.Api;
+namespace StoreOnline.Api.Extensions;
 
-public static class DependencyInjection
+public static class BuilderExtension
 {
+    public static IServiceCollection AddConfiguredCors(this IServiceCollection services)
+    {
+        services.AddCors(options =>
+        {
+            options.AddPolicy("StoreOnlinePolicy",
+                policy => policy.WithOrigins("http://localhost:5173") // Porta padrão do Vite/React
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+        });
+
+        return services;
+    }
+    
     public static IServiceCollection AddHandlers(this IServiceCollection services)
     {
         // Substitua 'Handler' por qualquer classe real que esteja no projeto Application

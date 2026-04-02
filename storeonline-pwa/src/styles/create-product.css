@@ -1,0 +1,159 @@
+/* Importando a fonte Inter (muito usada em interfaces modernas e elegantes) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Animação suave para a entrada do formulário na tela */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Container Principal - Efeito de Cartão Premium */
+.create-product-container {
+  max-width: 520px;
+  margin: 60px auto;
+  padding: 45px 40px;
+  background: #ffffff;
+  border-radius: 20px; /* Bordas bem arredondadas */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra elegante */
+  font-family: 'Inter', sans-serif;
+  animation: fadeInUp 0.7s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Detalhe de linha com gradiente no topo do container */
+.create-product-container::before {
+  content: '';
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #4f46e5, #ec4899); /* Degradê Índigo para Rosa */
+}
+
+/* Título */
+.create-product-container h2 {
+  text-align: center;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+}
+
+/* Estrutura do formulário */
+.create-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Labels minimalistas */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px; /* Deixa as letras um pouco mais separadas */
+}
+
+/* Inputs e Textareas com efeito "Soft" */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background-color: #f9fafb; /* Cinza super claro */
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 15px;
+  color: #1f2937;
+  transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Efeito Glow quando o usuário clica no input */
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #4f46e5; /* Cor primária da borda */
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15); /* Efeito de brilho externo */
+}
+
+/* Textarea específico */
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Botão Elegante com Gradiente */
+.submit-button {
+  margin-top: 15px;
+  padding: 16px;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3); /* Sombra colorida */
+}
+
+/* Efeito ao passar o mouse: o botão "levanta" */
+.submit-button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+}
+
+/* Efeito de clique */
+.submit-button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+/* Estado de desabilitado (enviando dados) */
+.submit-button:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Animação para a mensagem aparecer deslizando */
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Caixas de Feedback Refinadas */
+.message-box {
+  margin-top: 25px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: slideInDown 0.4s ease-out;
+}
+
+.message-success {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.1);
+}
+
+.message-error {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.1);
+}

@@ -9,10 +9,10 @@ namespace StoreOnline.Api.Controllers;
 public class ProductController(IHandler<Request, Response> sender) : ControllerBase
 {
     [HttpPost]
-    public async Task<IResult> CreateAsync(
-        Request command)
+    public async Task<IActionResult> CreateAsync(
+        [FromBody] Request command)
     {
         var result = await sender.Handle(command);
-        return TypedResults.Ok(result);
+        return Created("", result);
     }
 }
