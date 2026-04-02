@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using StoreOnline.Api;
 using StoreOnline.Api.Extensions;
 using StoreOnline.Infrastructure.SharedContext;
 using StoreOnline.Infrastructure.SharedContext.Data;

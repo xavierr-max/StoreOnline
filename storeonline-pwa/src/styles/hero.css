@@ -1,0 +1,149 @@
+﻿/* hero.css */
+
+.hero-container {
+    width: 100%;
+    background-color: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.03);
+}
+
+.hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+    gap: 3rem;
+}
+
+/* Texto do Hero */
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hero-greeting {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    background-color: #e0e7ff; /* Fundo indigo suave */
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -1.5px;
+    margin: 0.5rem 0;
+}
+
+.hero-text p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin-bottom: 1.5rem;
+}
+
+/* Botões de Ação */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #f1f5f9;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: #e2e8f0;
+}
+
+/* Visual Conceitual (Gráfico abstrato) */
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.abstract-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 150px;
+    padding: 20px;
+}
+
+.bar {
+    width: 30px;
+    background-color: #e0e7ff;
+    border-radius: 8px;
+    animation: barGrow 1.5s ease-out forwards;
+    transform-origin: bottom;
+}
+
+.bar-1 { height: 40%; animation-delay: 0.1s; }
+.bar-2 { height: 70%; animation-delay: 0.3s; background-color: #c7d2fe; }
+.bar-3 { height: 100%; animation-delay: 0.5s; background-color: var(--primary); }
+.bar-4 { height: 60%; animation-delay: 0.7s; background-color: #c7d2fe; }
+
+@keyframes barGrow {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-greeting {
+        align-self: center;
+    }
+
+    .hero-text p {
+        margin: 0 auto 1.5rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        display: none; /* Esconde o gráfico em telas menores */
+    }
+}

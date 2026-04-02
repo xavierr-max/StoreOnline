@@ -1,5 +1,4 @@
-﻿using StoreOnline.Domain.SaleContext.ValueObjects;
-using StoreOnline.Domain.SharedContext.Entities;
+﻿using StoreOnline.Domain.SharedContext.Entities;
 
 namespace StoreOnline.Domain.SaleContext.Entities;
 

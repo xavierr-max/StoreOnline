@@ -1,0 +1,72 @@
+﻿/* global.css */
+
+/* 1. Reset básico para consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. Variáveis de cores globais (Design System) */
+:root {
+    --bg-main: #f8fafc;
+    --text-dark: #0f172a;
+    --text-body: #334155;
+    --primary: #6366f1;
+    --white: #ffffff;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* 3. Configurações do corpo da página */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-body);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* 4. Tipografia intuitiva */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* 5. Links e Botões (comportamento padrão) */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+/* 6. Estilização da Scrollbar (Deixa o app com cara de premium) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* 7. Utilitários de transição */
+.transition-all {
+    transition: all 0.2s ease-in-out;
+}
